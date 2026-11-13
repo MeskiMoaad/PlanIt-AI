@@ -51,5 +51,5 @@ The data is retrieved using Fetch API and then processed with JavaScript.
 
 1. Clone or download the repository.
 2. Open the project in Visual Studio Code.
-3. Launch `newProject.html` or `dashboard.html` using the Live Server extension.
+3. Launch `newProject.html` or `index.html` using the Live Server extension.
 4. Open your browser to test the application.
