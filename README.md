@@ -23,7 +23,7 @@ The project is currently in its first JavaScript development phase.
 ```text
 PLANIT-AI/
 ├── newProject.html
-├── dashboard.html
+├── index.html
 ├── main.js
 ├── demo.js
 └── sample-plan.json
