@@ -11,17 +11,15 @@
 
 <body class="min-h-screen bg-[#F8F4F0] text-[#1E1B4B]">
 
-    <header class="bg-[#03080a] text-white px-8 py-4 shadow-lg">
-
+    <header class="bg-[#03080a] text-white px-8 py-5 shadow-lg">
         <div class="flex justify-between items-center">
 
             <h1 class="text-2xl font-bold">
-                PLANIT <span class="text-purple-400">AI</span>
+                + PLANIT <span class="text-purple-400">AI</span>
             </h1>
 
             <nav class="flex items-center gap-6">
-
-                <a href="index.html" class="px-4 py-2 rounded-lg hover:bg-[#c2f700]">
+                <a href="index.html" class="px-4 py-2 rounded-xl hover:bg-[#c2f700]">
                     Dashboard
                 </a>
 
@@ -29,14 +27,11 @@
                     + New Project
                 </a>
 
-                <button class="px-4 py-2 rounded-lg hover:bg-purple-700">
+                <button class="px-4 py-2 rounded-xl hover:bg-[#c2f700]">
                     AI Settings
                 </button>
-
             </nav>
-
-        </div> 
-
+        </div>
     </header>
 
     <main class="w-full px-8 lg:px-16 py-10">
@@ -51,7 +46,8 @@
             </p>
         </div>
 
-        <form class="bg-white p-8 lg:p-10 rounded-2xl shadow-lg space-y-8">
+        <form class="bg-white p-8 lg:p-10 rounded-2xl shadow-lg space-y-8"
+              data-parsley-validate>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
@@ -60,8 +56,11 @@
                         Project Name
                     </label>
 
-                    <input type="text" id="name"
+                    <input type="text" id="name" name="name"
                         placeholder="Enter your project name"
+                        required
+                        data-parsley-minlength="3"
+                        data-parsley-maxlength="30"
                         class="w-full border border-gray-300 rounded-lg p-4 outline-none focus:border-purple-600">
                 </div>
 
@@ -70,8 +69,11 @@
                         Short Description
                     </label>
 
-                    <input type="text" id="description"
+                    <input type="text" id="description" name="description"
                         placeholder="Describe your project briefly"
+                        required
+                        data-parsley-minlength="10"
+                        data-parsley-maxlength="400"
                         class="w-full border border-gray-300 rounded-lg p-4 outline-none focus:border-purple-600">
                 </div>
 
@@ -82,9 +84,12 @@
                     Project Brief
                 </label>
 
-                <textarea id="brief" rows="6"
+                <textarea id="brief" name="brief" rows="6"
                     placeholder="Explain your project requirements..."
-                    class="w-full border border-gray-300 rounded-lg p-4 outline-none focus:border-purple-600 resize-y"></textarea>
+                    required
+                    data-parsley-minlength="30"
+                    data-parsley-maxlength="10000"
+                    class="w-full border border-gray-300 rounded-lg p-4 outline-none focus:border-black resize-y"></textarea>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -94,9 +99,12 @@
                         Duration (Days)
                     </label>
 
-                    <input type="number" id="duration" min="1"
+                    <input type="number" id="duration" name="duration"
                         placeholder="Example: 10"
-                        class="w-full border border-gray-300 rounded-lg p-4 outline-none focus:border-purple-600">
+                        required
+                        min="1"
+                        data-parsley-min="1"
+                        class="w-full border border-gray-300 rounded-lg p-4 outline-none focus:border-black">
                 </div>
 
                 <div>
@@ -104,8 +112,11 @@
                         Number of Developers
                     </label>
 
-                    <input type="number" id="developers" min="1"
+                    <input type="number" id="developers" name="developers"
                         placeholder="Example: 3"
+                        required
+                        min="1"
+                        data-parsley-min="1"
                         class="w-full border border-gray-300 rounded-lg p-4 outline-none focus:border-purple-600">
                 </div>
 
@@ -118,8 +129,10 @@
                         Technologies
                     </label>
 
-                    <input type="text" id="technologies"
+                    <input type="text" id="technologies" name="technologies"
                         placeholder="HTML, CSS, JavaScript..."
+                        required
+                        data-parsley-minlength="2"
                         class="w-full border border-gray-300 rounded-lg p-4 outline-none focus:border-purple-600">
                 </div>
 
@@ -128,7 +141,9 @@
                         Difficulty Level
                     </label>
 
-                    <select id="difficulty"
+                    <select id="difficulty" name="difficulty"
+                        required
+                        data-parsley-required="true"
                         class="w-full border border-gray-300 rounded-lg p-4 outline-none focus:border-purple-600">
 
                         <option value="">Select difficulty</option>
@@ -141,9 +156,7 @@
 
             </div>
 
-        
             <div class="flex justify-end pt-4">
-
                 <button type="submit"
                     class="bg-blue-600 text-black font-semibold px-10 py-4 rounded-xl hover:bg-blue-700 transition">
 
@@ -151,9 +164,13 @@
 
                 </button>
             </div>
+
         </form>
 
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/dist/parsley.min.js"></script>
     <script type="module" src="js/main.js"></script>
 
 </body>
